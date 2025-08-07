@@ -8,6 +8,8 @@ import com.enaa.miniprojet.Model.Book;
 import com.enaa.miniprojet.Repository.BookRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -24,5 +26,10 @@ public class BookService {
         Book book = bookMap.toEntity(dto);
         Book save = bookRepository.save(book);
         return bookMap.toDto(save);
+    }
+
+    public List<BookDto> getAll(){
+        List<Book> books = bookRepository.findAll();
+        return bookMap.toDTOs(books);
     }
 }

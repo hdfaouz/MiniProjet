@@ -4,6 +4,8 @@ import com.enaa.miniprojet.Dto.BookDto;
 import com.enaa.miniprojet.Service.BookService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/book")
 public class BookController {
@@ -17,5 +19,10 @@ public class BookController {
     @PostMapping
     public BookDto ajouter(@RequestBody BookDto bookDto){
         return bookService.ajouter(bookDto);
+    }
+
+    @GetMapping
+    public List<BookDto> getAll(){
+        return bookService.getAll();
     }
 }
