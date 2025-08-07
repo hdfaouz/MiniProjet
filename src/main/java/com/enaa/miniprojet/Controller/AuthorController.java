@@ -2,10 +2,9 @@ package com.enaa.miniprojet.Controller;
 
 import com.enaa.miniprojet.Dto.AuthorDto;
 import com.enaa.miniprojet.Service.AuthorService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/author")
@@ -20,6 +19,11 @@ public class AuthorController {
     @PostMapping
     public AuthorDto ajouter(@RequestBody AuthorDto dto){
         return authorService.ajouter(dto);
+    }
+
+    @GetMapping
+    public List<AuthorDto> getAll(){
+        return authorService.getAll();
     }
 
 }

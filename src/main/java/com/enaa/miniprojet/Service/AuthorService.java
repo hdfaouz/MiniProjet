@@ -6,6 +6,8 @@ import com.enaa.miniprojet.Model.Author;
 import com.enaa.miniprojet.Repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthorService {
 
@@ -22,5 +24,10 @@ public class AuthorService {
         Author author = authorMap.toEntity(dto);
         Author save = authorRepository.save(author);
         return authorMap.toDto(save);
+    }
+
+    public List<AuthorDto> getAll(){
+        List<Author> authors = authorRepository.findAll();
+        return authorMap.toDTOs(authors);
     }
 }
