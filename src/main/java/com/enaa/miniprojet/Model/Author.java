@@ -2,6 +2,9 @@ package com.enaa.miniprojet.Model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Author {
     @Id
@@ -11,13 +14,26 @@ public class Author {
     private String name;
     private String biography;
 
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<Book> books = new ArrayList<>();
+
+
     public Author() {
     }
 
-    public Author(Long id, String name, String biography) {
+    public Author(Long id, String name, String biography, List<Book> books) {
         this.id = id;
         this.name = name;
         this.biography = biography;
+        this.books = books;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public String getName() {

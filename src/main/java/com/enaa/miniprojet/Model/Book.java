@@ -11,6 +11,7 @@ public class Book {
     private String title;
     private String isbn;
 
+
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
