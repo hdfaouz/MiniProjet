@@ -30,4 +30,10 @@ public class AuthorService {
         List<Author> authors = authorRepository.findAll();
         return authorMap.toDTOs(authors);
     }
+
+    public AuthorDto getById(Long id){
+        Author foundCompetence =authorRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("author not found"));
+        return authorMap.toDto(foundCompetence);
+    }
 }

@@ -26,4 +26,10 @@ public class AuthorController {
         return authorService.getAll();
     }
 
+    @GetMapping("/authors/{id}")
+    public AuthorDto getById(@PathVariable Long id){
+        return authorService.getById(id);
+    }
 }
+
+
