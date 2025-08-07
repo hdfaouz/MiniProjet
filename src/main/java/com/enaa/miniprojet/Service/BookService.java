@@ -50,4 +50,8 @@ public class BookService {
 
         return bookMap.toDto(savedBook);
     }
+
+    public void delet(Long id){
+        bookRepository.deleteById(id);
+    }
 }
