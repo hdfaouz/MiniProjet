@@ -38,4 +38,16 @@ public class BookService {
                 .orElseThrow(()-> new RuntimeException("book not found"));
         return bookMap.toDto(foundCompetence);
     }
+
+    public BookDto update(Long id, BookDto dto){
+        Book books = bookRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("User not found"));
+
+        books.setTitle(dto.getTitle());
+        books.setIsbn(dto.getIsbn());
+        books.setAuthor(dto.getAuthor());
+        Book savedBook = bookRepository.save(books);
+
+        return bookMap.toDto(savedBook);
+    }
 }
