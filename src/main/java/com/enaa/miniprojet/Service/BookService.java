@@ -32,4 +32,10 @@ public class BookService {
         List<Book> books = bookRepository.findAll();
         return bookMap.toDTOs(books);
     }
+
+    public BookDto getById(Long id){
+        Book foundCompetence =bookRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("book not found"));
+        return bookMap.toDto(foundCompetence);
+    }
 }
