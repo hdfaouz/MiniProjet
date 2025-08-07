@@ -1,4 +1,7 @@
 package com.enaa.miniprojet.Repository;
 
-public interface AuthorRepository {
+import com.enaa.miniprojet.Model.Author;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AuthorRepository extends JpaRepository<Author,Long> {
 }
